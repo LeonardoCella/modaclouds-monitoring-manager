@@ -13,7 +13,6 @@
             on: {
                 click: function() {
                     var $this = $(this);
-
                     $this.toggleClass('collapsed');
                     var block = $this.parent().children('.block');
                     var ul = block.children('ul');

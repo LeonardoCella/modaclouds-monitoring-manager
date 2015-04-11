@@ -159,9 +159,9 @@ function xmlParser(xml) {
 //Ricerca in profondità nell'albero xml
 function traverse(node, tree) {
     var children = $(tree).children();
-    var link;
-    if (tree.nodeName.indexOf("monitoringRule") > -1) {
-        node.append("<b><u><a href='"+ link +"'>" + tree.nodeName + "</a></u></b>");
+    var link = URL + "/" + tree.id ;
+    if (tree.nodeName.indexOf("monitoringRule") > -1 && tree.nodeName.indexOf("monitoringRules") < 0) {
+        node.append("<b><u><a onclick='"+ link +"' href='#'>" + tree.nodeName + "</a></u></b>");
         node.append("<input type='button' onclick=deleteRule('" + tree.id + "')><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
     }
     else

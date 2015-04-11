@@ -122,7 +122,7 @@ function observersParser(obj, metricID) {
 
 
 function toggle(metricID) {
-    $("#toggled_" + metricID).toggle();
+    $("#toggled_" + metricID).slideToggle();
 }
 
 function sendFetching(metricID) {
