@@ -1,1 +1,31 @@
-<a href="index.html">index page</a>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+        <script type="text/javascript" src="js/tree.jquery.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/jqtree.css">
+        <title>treeView</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var data =[{
+                            "type": "literal",
+                            "value": "register1",
+                            "datatype": "http://www.w3.org/2001/XMLSchema#string"
+                        }
+                    ];
+                    
+            $(function () {
+                $('#tree1').tree({
+                    data: data
+                });
+            });
+        </script>
+
+        <div id="tree1">
+
+        </div>
+    </body>
+</html>
+
