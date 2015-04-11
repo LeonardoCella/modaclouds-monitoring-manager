@@ -1,0 +1,76 @@
+/*
+Copyright 2015 Leo.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+/* 
+    Created on : 28-mar-2015, 16.26.12
+    Author     : Leo
+*/
+
+
+#boxAdd{
+    width: 80%;
+    margin: auto;
+}
+
+#boxList{
+    top: 30px;
+    width: 80%;
+    margin: auto;    
+}
+
+#centralButton{
+    margin: auto;
+    border: 1px solid black;
+    text-align: center;
+}
+
+#btn{
+    text-align: center;
+    margin-top: 10px;
+}
+
+#error{
+    position: relative;
+    margin-top: 30px;
+    margin: auto;
+    width: 80%;
+    display: hidden;
+    background-color: #d9534f;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid red;
+}
+
+#success{
+    position: relative;
+    margin-top: 30px;
+    margin: auto;
+    width: 80%;
+    display: hidden;
+    background-color: #5cb85c;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid green;
+}
+
+#centered{
+    margin:auto;
+    text-align: center;
+}
+
+.floatRight{
+    float: right;
+    margin-right: 0px;
+}

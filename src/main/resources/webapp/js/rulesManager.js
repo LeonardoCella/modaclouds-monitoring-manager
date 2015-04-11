@@ -105,8 +105,8 @@ function textualSender(text) {
         data: text,
         contentType: "text/xml",
         cache: false,
-        error: function (err) {
-            detectError(AJAX);
+        error: function (jqXHR, textStatus, errorThrown) {
+            detectError(textStatus + " " + jqXHR.status + " : " + errorThrown);
             tableReloader();
         },
         success: function (xml) {
@@ -131,8 +131,8 @@ function readSingleFile(e) {
 function deleteRule(id) {
     $.ajax({type: "DELETE",
         url: URL + "/" + id,
-        error: function () {
-            detectError(AJAX);
+        error: function (jqXHR, textStatus, errorThrown) {
+            detectError(textStatus + " " + jqXHR.status + " : " + errorThrown);
             tableReloader();
         },
         success: function () {
@@ -155,16 +155,25 @@ function xmlParser(xml) {
             $(this).text('–').next().children().show();
     });
 }
+
+//Ricerca in profondità nell'albero xml
 function traverse(node, tree) {
-    var children = $(tree).children(); 
-    node.append(tree.nodeName);
+    var children = $(tree).children();
+    var link;
+    if (tree.nodeName.indexOf("monitoringRule") > -1) {
+        node.append("<b><u><a href='"+ link +"'>" + tree.nodeName + "</a></u></b>");
+        node.append("<input type='button' onclick=deleteRule('" + tree.id + "')><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
+    }
+    else
+        node.append(tree.nodeName);
+    
     if (children.length) {
         var ul = $("<ul>").appendTo(node);
         children.each(function () {
             var li = $('<li>').appendTo(ul);
             traverse(li, this);
         });
-    } else {
+    } else {//nodo foglia
         $('<ul><li> ' + $(tree).text() + '<\/li><\/ul>').appendTo(node);
     }
 }
@@ -226,8 +235,8 @@ function redirector(id) {
     $.ajax({
         type: "GET",
         url: dest,
-        error: function () {
-            detectError(AJAX);
+        error: function (jqXHR, textStatus, errorThrown) {
+            detectError(textStatus + " " + jqXHR.status + " : " + errorThrown);
             tableReloader();
         },
         success: function (data) {
@@ -246,25 +255,12 @@ function showXMLRule(data) {
 /*
  * Manager of the Warning-div messages according to the error types
  */
-function detectError(type) {
-    var str = "";
-    switch (type) {
-        case 1:
-            str += "Wrong File Format!";
-            break;
-        case 2:
-            str += "Bad Request !";
-            break;
-        case 3:
-            str += "Problem during the rules' request!";
-    }
-
+function detectError(info) {
     // display error
-    $("#error").text(str);
+    $("#error").text(info);
     $("success").hide();
     $("#error").show();
 }
-
 /*
  * Manages the information div
  */

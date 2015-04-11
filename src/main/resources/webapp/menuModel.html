@@ -20,8 +20,17 @@ limitations under the License.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <!-- jQuery library -->
+        <script type="text/javascript"  src="js/jquery-1.11.2.js"></script>
+
+        <!-- script necessary for the JSON parsing -->
+        <script type="text/javascript"  src="js/jquery.json-view.js"></script>
+        
         <!-- Mine style sheet -->
         <link rel="stylesheet" type="text/css" href="css/commonLayout.css">
+
+        <!-- CSS useful for the tree -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.json-view.css">
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -30,10 +39,8 @@ limitations under the License.
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-                
-        <!-- jQuery library -->
-        <script src="js/jquery-1.11.2.js"></script>
+        <script type="text/javascript"  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
     </head>
 
     <body>
@@ -50,7 +57,8 @@ limitations under the License.
                         <a href="menuModel.html">
                             Model
                             <span class="sr-only">(current)</span>
-                        </a></li>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -97,33 +105,21 @@ limitations under the License.
                 <h3 class="panel-title">List of models</h3>
             </div>
             <div class="panel-body">
-                <table class="table table-hover">
-                    <thead >
-                        <td>Methods</td>
-                        <td>Types</td>
-                        <td> 
-                            <span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span>
-                        </td>
-                        <td>id</td>
-                        <td>
-                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-                        </td>
-                    </thead>
+                <div id="element">
                     
-                    <tbody id="tableOfModels"></tbody>
-                </table>
+                </div>
             </div>
         </div>
 
-        
+
         <div id="error">
         </div>
-        
+
         <div id="success">
         </div>
-        
+
         <!-- JS Manager -->
         <script type="text/javascript" src="js/modelManager.js"></script>
-        
+
     </body>
 </html>
