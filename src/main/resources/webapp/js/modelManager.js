@@ -96,7 +96,6 @@ function sender(text, insertionMode) {
  * sends the xml wrote in the textarea
  */
 function textualSender(text, mode) {
-    alert(text);
     $.ajax({type: mode,
         url: URL,
         data: text,
@@ -112,9 +111,8 @@ function textualSender(text, mode) {
     });
 }
 function JSONParser(json){
-    $('#element').jsonView(JSON.stringify(
-            {"vMs":[{"numberOfCPUs":2,"cloudProvider":"amazon","type":"Frontend","id":"frontend3"}],"internalComponents":[{"requiredComponents":["frontend3"],"providedMethods":["mic3-answerQuestions","mic3-register","mic3-saveAnswers"],"type":"Mic","id":"mic3"}],"methods":[{"type":"answerQuestions","id":"mic3-answerQuestions"},{"type":"register","id":"mic3-register"},{"type":"saveAnswers","id":"mic3-saveAnswers"}]}
-            ));
+    $('#element').empty();
+    $('#element').jsonView(json);
 }
 
 function traverse(node, tree) {
