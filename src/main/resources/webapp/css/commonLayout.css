@@ -85,6 +85,10 @@ ul{
     min-height: 30px;
 }
 
+#treeView ul{
+    border-left: 1px dotted black;
+}
+
 .spanAttributes{
     color: #800;
 }

@@ -159,6 +159,7 @@ function xmlParser(xml) {
 //Ricerca nell'albero xml
 function traverse(node, tree) {
     var children = $(tree).children();
+    
     var attributes = " [  ";
     $(tree.attributes).each(function(){
         attributes += this.nodeName + " = ";
@@ -167,11 +168,11 @@ function traverse(node, tree) {
     attributes += " ] ";
     
     if (tree.nodeName.indexOf("monitoringRule") > -1 && tree.nodeName.indexOf("monitoringRules") < 0) {
-        node.append(' "' + tree.nodeName  + '" </span><span class="spanAttributes"> ' + attributes + ' </span> ');
+        node.append(' "' + tree.nodeName  + '" </span><span class="spanAttributes"> ' + attributes + ' </span>: ');
         node.append("<button onclick=deleteRule('" + tree.id + "') class='floatRight'><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
     }
     else
-        node.append('<span> "' + tree.nodeName + '"</span><span  class="spanAttributes">' + attributes + '</span>');
+        node.append('<span> "' + tree.nodeName + '"</span><span  class="spanAttributes">' + attributes + '</span>:');
     
     if (children.length) {
         var ul = $("<ul> ").appendTo(node);
