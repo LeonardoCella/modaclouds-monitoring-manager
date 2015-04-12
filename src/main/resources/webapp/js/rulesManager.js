@@ -162,7 +162,7 @@ function traverse(node, tree) {
     var link = URL + "/" + tree.id ;
     if (tree.nodeName.indexOf("monitoringRule") > -1 && tree.nodeName.indexOf("monitoringRules") < 0) {
         node.append(tree.nodeName);
-        node.append("<button onclick=deleteRule('" + tree.id + "')><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
+        node.append("<button onclick=deleteRule('" + tree.id + "') class='floatRight'><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
     }
     else
         node.append("<span>"+tree.nodeName+"</span>");
@@ -225,7 +225,9 @@ function traverse(node, tree) {
  }*/
 
 function tableReloader() {
-    $("#tableOfRules").empty();
+    $('#treeView').empty();
+    $('#treeView').append("<li></li>");
+    $('#treeView').hide();
     getter();
 }
 
@@ -246,10 +248,6 @@ function redirector(id) {
 
         }
     });
-}
-
-function showXMLRule(data) {
-    alert(data);
 }
 
 /*

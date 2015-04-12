@@ -4,14 +4,15 @@
  * @link http://github.com/bazh/jquery.json-view
  * @license MIT
  */
-;(function ($) {
+;
+(function ($) {
     'use strict';
 
-    var collapser = function(collapsed) {
+    var collapser = function (collapsed) {
         var item = $('<span />', {
             'class': 'collapser',
             on: {
-                click: function() {
+                click: function () {
                     var $this = $(this);
                     $this.toggleClass('collapsed');
                     var block = $this.parent().children('.block');
@@ -35,28 +36,28 @@
         return item;
     };
 
-    var formatter = function(json, opts) {
+    var formatter = function (json, opts) {
         var options = $.extend({}, {
             nl2br: true
         }, opts);
 
-        var htmlEncode = function(html) {
+        var htmlEncode = function (html) {
             if (!html.toString()) {
                 return '';
             }
-
             return html.toString().replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
         };
 
-        var span = function(val, cls) {
+        var span = function (val, cls) {
+
             return $('<span />', {
                 'class': cls,
                 html: htmlEncode(val)
             });
-        };        
+        };
 
-        var genBlock = function(val, level) {
-            switch($.type(val)) {
+        var genBlock = function (val, level, isAnID) {
+            switch ($.type(val)) {
                 case 'object':
                     if (!level) {
                         level = 0;
@@ -69,9 +70,9 @@
                     var cnt = Object.keys(val).length;
                     if (!cnt) {
                         return output
-                            .append(span('{', 'b'))
-                            .append(' ')
-                            .append(span('}', 'b'));
+                                .append(span('{', 'b'))
+                                .append(' ')
+                                .append(span('}', 'b'));
                     }
 
                     output.append(span('{', 'b'));
@@ -80,14 +81,20 @@
                         'class': 'obj collapsible level' + level
                     });
 
-                    $.each(val, function(key, data) {
+                    var isAnID = false;
+
+                    $.each(val, function (key, data) {
                         cnt--;
+
+                        if (key == "id")
+                            isAnID = true;
+
                         var item = $('<li />')
-                            .append(span('"', 'q'))
-                            .append(key)
-                            .append(span('"', 'q'))
-                            .append(': ')
-                            .append(genBlock(data, level + 1));
+                                .append(span('"', 'q'))
+                                .append(key)
+                                .append(span('"', 'q'))
+                                .append(': ')
+                                .append(genBlock(data, level + 1, isAnID));
 
                         if (['object', 'array'].indexOf($.type(data)) !== -1 && !$.isEmptyObject(data)) {
                             item.prepend(collapser());
@@ -124,9 +131,9 @@
 
                     if (!cnt) {
                         return output
-                            .append(span('[', 'b'))
-                            .append(' ')
-                            .append(span(']', 'b'));
+                                .append(span('[', 'b'))
+                                .append(' ')
+                                .append(span(']', 'b'));
                     }
 
                     output.append(span('[', 'b'));
@@ -135,10 +142,11 @@
                         'class': 'obj collapsible level' + level
                     });
 
-                    $.each(val, function(key, data) {
+                    $.each(val, function (key, data) {
                         cnt--;
+
                         var item = $('<li />')
-                            .append(genBlock(data, level + 1));
+                                .append(genBlock(data, level + 1, false));
 
                         if (['object', 'array'].indexOf($.type(data)) !== -1 && !$.isEmptyObject(data)) {
                             item.prepend(collapser());
@@ -164,14 +172,15 @@
 
                 case 'string':
                     val = htmlEncode(val);
+
                     if (/^(http|https|file):\/\/[^\s]+$/i.test(val)) {
                         return $('<span />')
-                            .append(span('"', 'q'))
-                            .append($('<a />', {
-                                href: val,
-                                text: val
-                            }))
-                            .append(span('"', 'q'));
+                                .append(span('"', 'q'))
+                                .append($('<a />', {
+                                    href: val,
+                                    text: val
+                                }))
+                                .append(span('"', 'q'));
                     }
                     if (options.nl2br) {
                         var pattern = /\n/g;
@@ -180,13 +189,20 @@
                         }
                     }
 
-                    var text = $('<span />', { 'class': 'str' })
-                        .html(val);
+                    var text = $('<span />', {'class': 'str'})
+                            .html(val);
 
-                    return $('<span />')
-                        .append(span('"', 'q'))
-                        .append(text)
-                        .append(span('"', 'q'));
+                    if (isAnID){
+                        return $('<span />')
+                                .append(span('"', 'q'))
+                                .append(text)
+                                .append("<button class='floatRight' onclick=deleteModel('" + val + "')><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>")
+                                .append(span('"', 'q'));
+                    }else
+                        return $('<span />')
+                                .append(span('"', 'q'))
+                                .append(text)
+                                .append(span('"', 'q'));
 
                 case 'number':
                     return span(val.toString(), 'num');
@@ -202,10 +218,10 @@
             }
         };
 
-        return genBlock(json);        
+        return genBlock(json);
     };
 
-    return $.fn.jsonView = function(json, options) {
+    return $.fn.jsonView = function (json, options) {
         var $this = $(this);
 
         options = $.extend({}, {
