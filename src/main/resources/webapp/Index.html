@@ -19,10 +19,10 @@ limitations under the License.
         <title>MODAClouds Monitoring Manager | Rules</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+
         <!-- Mine style sheet -->
         <link rel="stylesheet" type="text/css" href="css/commonLayout.css">
-        
+
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
@@ -31,16 +31,19 @@ limitations under the License.
 
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-        
+
         <!-- jQuery library -->
         <script src="js/jquery-1.11.2.js"></script>
-    
+
     </head>
-    
+
     <body>
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
-                 <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <img src="images/MODAClouds.png" alt="logo" />
+                    </li>
                     <li class="active">
                         <a href="#">
                             Rules
@@ -49,13 +52,13 @@ limitations under the License.
                     </li>
                     <li><a href="menuMetrics.html">Metrics</a></li>
                     <li><a href="menuModel.html">Model</a></li>
-                  </ul>
+                </ul>
             </div>
         </nav>
-        
+
         <div class="panel panel-default" id="boxAdd">
             <div class="panel-heading">
-              <h3 class="panel-title">Add a new Rule</h3>
+                <h3 class="panel-title">Add a new Rule</h3>
             </div>
             <div class="panel-body">
                 <form id="rulesForm">
@@ -77,10 +80,10 @@ limitations under the License.
                 </form>
             </div>
         </div>
-        
+
         <div class="panel panel-default" id="boxList">
             <div class="panel-heading">
-              <h3 class="panel-title">List of rules</h3>
+                <h3 class="panel-title">List of rules</h3>
             </div>
             <div class="panel-body">
                 <ul id="treeView" style="display: none">
@@ -88,13 +91,13 @@ limitations under the License.
                 </ul>
             </div>
         </div>
-        
+
         <div id="error">
         </div>
-        
+
         <div id="success">
         </div>
-        
+
         <!-- JS Manager -->
         <script type="text/javascript" src="js/rulesManager.js"></script>
     </body>
