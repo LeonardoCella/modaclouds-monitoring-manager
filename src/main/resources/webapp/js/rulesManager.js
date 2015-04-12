@@ -150,9 +150,9 @@ function xmlParser(xml) {
     $('<b>–<\/b>').prependTo('#treeView li:has(li)').click(function () {
         var sign = $(this).text();
         if (sign == "–")
-            $(this).text('+').next().children().hide();
+            $(this).text('+').next().next().children().hide();
         else
-            $(this).text('–').next().children().show();
+            $(this).text('–').next().next().children().show();
     });
 }
 
@@ -161,11 +161,11 @@ function traverse(node, tree) {
     var children = $(tree).children();
     var link = URL + "/" + tree.id ;
     if (tree.nodeName.indexOf("monitoringRule") > -1 && tree.nodeName.indexOf("monitoringRules") < 0) {
-        node.append("<b><u><a onclick='"+ link +"' href='#'>" + tree.nodeName + "</a></u></b>");
-        node.append("<input type='button' onclick=deleteRule('" + tree.id + "')><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
+        node.append(tree.nodeName);
+        node.append("<button onclick=deleteRule('" + tree.id + "')><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
     }
     else
-        node.append(tree.nodeName);
+        node.append("<span>"+tree.nodeName+"</span>");
     
     if (children.length) {
         var ul = $("<ul>").appendTo(node);
