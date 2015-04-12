@@ -46,7 +46,7 @@
 .json-view ul {
     list-style-type: none;
     padding-left: 2em;
-    border-left: 1px dotted;
+    border-left: 1px dashed black;
     margin: 0.3em;
 }
 
