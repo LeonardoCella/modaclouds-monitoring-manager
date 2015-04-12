@@ -98,7 +98,7 @@ function deleteObserver(composedID) {
 
 function observersParser(obj, metricID) {
     //var obj = $.parseJSON(jsonString);a
-    var returnStr = "<div class='panel-body' id='toggled_" + metricID + "'>";
+    var returnStr = "<div class='panel-body borderedDiv' id='toggled_" + metricID + "'>";
     var param = "";
     returnStr += "<div class='col-lg-12'><p><u>Observers:</u></p></div>";
     var length = obj.observers.length;

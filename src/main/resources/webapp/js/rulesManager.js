@@ -156,19 +156,25 @@ function xmlParser(xml) {
     });
 }
 
-//Ricerca in profondità nell'albero xml
+//Ricerca nell'albero xml
 function traverse(node, tree) {
     var children = $(tree).children();
-    var link = URL + "/" + tree.id ;
+    var attributes = " [  ";
+    $(tree.attributes).each(function(){
+        attributes += this.nodeName + " = ";
+        attributes += ' "' +this.nodeValue + '" ; ';
+    });
+    attributes += " ] ";
+    
     if (tree.nodeName.indexOf("monitoringRule") > -1 && tree.nodeName.indexOf("monitoringRules") < 0) {
-        node.append(tree.nodeName);
+        node.append(" " + tree.nodeName + attributes);
         node.append("<button onclick=deleteRule('" + tree.id + "') class='floatRight'><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
     }
     else
-        node.append("<span>"+tree.nodeName+"</span>");
+        node.append("<span> " + tree.nodeName + attributes + "</span>");
     
     if (children.length) {
-        var ul = $("<ul>").appendTo(node);
+        var ul = $("<ul> ").appendTo(node);
         children.each(function () {
             var li = $('<li>').appendTo(ul);
             traverse(li, this);

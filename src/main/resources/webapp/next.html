@@ -2,30 +2,33 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
-        <script type="text/javascript" src="js/tree.jquery.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/jqtree.css">
+        
+        <script type="text/javascript" src="js/xml2json.js"></script>
+        
+        <!-- jQuery library -->
+        <script type="text/javascript"  src="js/jquery-1.11.2.js"></script>
+        
+        <!-- CSS useful for the tree -->
+        <link rel="stylesheet" type="text/css" href="css/jquery.json-view.css">
+        
+        <!-- script necessary for the JSON parsing -->
+        <script type="text/javascript"  src="js/jquery.json-view.js"></script>
+        
         <title>treeView</title>
     </head>
     <body>
-        <script type="text/javascript">
-            var data =[{
-                            "type": "literal",
-                            "value": "register1",
-                            "datatype": "http://www.w3.org/2001/XMLSchema#string"
-                        }
-                    ];
-                    
-            $(function () {
-                $('#tree1').tree({
-                    data: data
-                });
-            });
-        </script>
-
-        <div id="tree1">
+        <div id="element">
 
         </div>
+                <script type="text/javascript">
+            var xml = "<monitoringRules xmlns='http://www.modaclouds.eu/xsd/1.0/monitoring_rules_schema'><monitoringRule id='AvgResponseTimeRule' label='Avg RT Rule' startEnabled='true' timeStep='60' timeWindow='60'><monitoredTargets><monitoredTarget class='Method' type='register'/></monitoredTargets><collectedMetric metricName='ResponseTime'><parameter name='samplingProbability'>1</parameter> </collectedMetric> <metricAggregation aggregateFunction='Average' groupingClass='Method'/> <actions> <action name='OutputMetric'><parameter name='resourceId'>ID</parameter><parameter name='metric'>AverageResponseTime</parameter><parameter name='value'>METRIC</parameter></action></actions></monitoringRule></monitoringRules>";
+         
+            var jsonOBJ = xml2json.parser(xml);
+            $('#element').append(JSON.stringify(jsonOBJ));
+            
+            $('#element').jsonView(JSON.stringify(jsonOBJ));
+        
+        </script>
     </body>
 </html>
 

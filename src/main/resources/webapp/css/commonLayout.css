@@ -74,3 +74,13 @@ limitations under the License.
     float: right;
     margin-right: 0px;
 }
+
+.borderedDiv{
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    margin-bottom: 20px;
+}
+
+ul{
+    min-height: 30px;
+}
