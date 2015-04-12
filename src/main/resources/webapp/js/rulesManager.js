@@ -150,9 +150,9 @@ function xmlParser(xml) {
     $('<b>–<\/b>').prependTo('#treeView li:has(li)').click(function () {
         var sign = $(this).text();
         if (sign == "–")
-            $(this).text('+').next().next().children().hide();
+            $(this).text('+').next().next().next().children().hide();
         else
-            $(this).text('–').next().next().children().show();
+            $(this).text('–').next().next().next().children().show();
     });
 }
 
@@ -167,11 +167,11 @@ function traverse(node, tree) {
     attributes += " ] ";
     
     if (tree.nodeName.indexOf("monitoringRule") > -1 && tree.nodeName.indexOf("monitoringRules") < 0) {
-        node.append(" " + tree.nodeName + attributes);
+        node.append(' "' + tree.nodeName  + '" </span><span class="spanAttributes"> ' + attributes + ' </span> ');
         node.append("<button onclick=deleteRule('" + tree.id + "') class='floatRight'><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
     }
     else
-        node.append("<span> " + tree.nodeName + attributes + "</span>");
+        node.append('<span> "' + tree.nodeName + '"</span><span  class="spanAttributes">' + attributes + '</span>');
     
     if (children.length) {
         var ul = $("<ul> ").appendTo(node);
