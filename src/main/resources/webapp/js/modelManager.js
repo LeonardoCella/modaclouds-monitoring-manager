@@ -42,7 +42,10 @@ $("#modelForm").submit(function (event) {
     var text;
 
     text = $("#textual").val();
-
+    
+    $("#textual").val("");
+    $("#addedFile").val("");
+    
     sender(text, insertionMode);
     /* stop form from submitting normally */
     event.preventDefault();

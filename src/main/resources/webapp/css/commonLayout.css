@@ -22,12 +22,14 @@ limitations under the License.
 #boxAdd{
     width: 80%;
     margin: auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
 
 #boxList{
-    top: 30px;
     width: 80%;
-    margin: auto;    
+    margin: auto; 
+    margin-top: 50px;   
 }
 
 #centralButton{
@@ -86,9 +88,22 @@ ul{
 }
 
 #treeView ul{
-    border-left: 1px dotted black;
+    border-left: 1px dashed black;
 }
 
 .spanAttributes{
     color: #800;
+}
+
+.navbar-height{
+    height: 80px;
+    border-bottom: 10px solid black;
+}
+
+.selected{
+    border-bottom: 10px solid #31b0d5;
+}
+
+.rulesTreeLeaf{
+    color: darkblue;
 }

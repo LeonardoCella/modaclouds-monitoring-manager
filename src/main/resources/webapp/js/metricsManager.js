@@ -79,7 +79,6 @@ function observersGetter(metricID) {
 }
 
 function deleteObserver(composedID) {
-    alert("start");
     observerID = composedID.split("§")[0];
     metricID = composedID.split("§")[1];
     var url = URL + "/" + metricID + "/observers/" + observerID;
@@ -100,7 +99,9 @@ function observersParser(obj, metricID) {
     //var obj = $.parseJSON(jsonString);a
     var returnStr = "<div class='panel-body borderedDiv' id='toggled_" + metricID + "'>";
     var param = "";
-    returnStr += "<div class='col-lg-12'><p><u>Observers:</u></p></div>";
+    returnStr += "<div class='col-lg-4'><p><u>Observer ID:</u></p></div>";
+    returnStr += "<div class='col-lg-4'><p><u>Callback Url:</u></p></div>";
+    returnStr += "<div class='col-lg-4'><p><u>Delete</u></p></div>";
     var length = obj.observers.length;
 
     for (var i = 0; i < length; i++) {

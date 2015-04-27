@@ -33,10 +33,10 @@ limitations under the License.
         <link rel="stylesheet" type="text/css" href="css/jquery.json-view.css">
 
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
         <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
         <!-- Latest compiled and minified JavaScript -->
         <script type="text/javascript"  src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
@@ -47,17 +47,17 @@ limitations under the License.
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <img src="images/MODAClouds.png" alt="logo" />
+                    <li id="logo">
+                        <img src="images/logo.png" class="navbar-height" alt="MODAClouds" />
                     </li>
                     <li>
-                        <a href="Index.html">Rules</a>
+                        <a href="index.html" class="navbar-height">Rules</a>
                     </li>
                     <li>
-                        <a href="menuMetrics.html">Metrics</a>
+                        <a href="menuMetrics.html"  class="navbar-height">Metrics</a>
                     </li>
-                    <li class="active">
-                        <a href="menuModel.html">
+                    <li  class="navbar-height active">
+                        <a href="menuModel.html"  class="navbar-height selected">
                             Model
                             <span class="sr-only">(current)</span>
                         </a>
@@ -86,11 +86,11 @@ limitations under the License.
                     <div class="row control-group col-lg-12">
                         <div class="col-lg-6">
                             <label class="radio-inline"> 
-                                <input type="radio" name="AddingMode" id="PutMode" value="PUT"> Put </label>
+                                <input type="radio" name="AddingMode" id="PutMode" value="PUT" > Upload Model </label>
                         </div>
                         <div class="col-lg-6">
                             <label class="radio-inline"> 
-                                <input type="radio" name="AddingMode" id="PostMode" value="POST"> Post </label>
+                                <input type="radio" name="AddingMode" id="PostMode" value="POST" checked="checked"> Update Model </label>
                         </div>
                     </div>
 
@@ -105,7 +105,7 @@ limitations under the License.
 
         <div class="panel panel-default" id="boxList">
             <div class="panel-heading">
-                <h3 class="panel-title">List of models</h3>
+                <h3 class="panel-title">Models</h3>
             </div>
             <div class="panel-body">
                 <div id="element">

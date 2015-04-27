@@ -22,15 +22,16 @@ limitations under the License.
         
         <!-- Mine style sheet -->
         <link rel="stylesheet" type="text/css" href="css/commonLayout.css">
-        
+
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 
         <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
                         
         <!-- jQuery library -->
         <script src="js/jquery-1.11.2.js"></script>
@@ -39,26 +40,30 @@ limitations under the License.
     <body>
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
-                 <ul class="nav navbar-nav">
-                    <li>
-                        <img src="images/MODAClouds.png" alt="logo" />
+                <ul class="nav navbar-nav">
+                    <li id="logo">
+                        <img src="images/logo.png" class="navbar-height" alt="MODAClouds" />
                     </li>
                     <li>
-                        <a href="Index.html">Rules</a>
+                        <a href="index.html" class="navbar-height">Rules</a>
                     </li>
                     <li class="active">
-                        <a href="menuMetrics.html">Metrics
+                        <a href="menuMetrics.html"  class="navbar-height selected">Metrics
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li><a href="menuModel.html">Model</a></li>
-                  </ul>
+                    <li>
+                        <a href="menuModel.html" class="navbar-height">
+                            Model
+                        </a>
+                    </li>
+                </ul>
             </div>
         </nav>
         
         <div class="panel panel-default" id="boxList">
             <div class="panel-heading">
-              <h3 class="panel-title">List of observers</h3>
+              <h3 class="panel-title">List of metrics</h3>
             </div>
             <div class="panel-body">
                 <div id="metricsKeeper">

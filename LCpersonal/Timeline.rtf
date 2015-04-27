@@ -1,10 +1,14 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1344\cocoasubrtf720
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
 \paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh14500\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
 
-\f0\fs24 \cf0 Gioved\'ec 26/03/15 20.00 - 21.00 \
+\f0\fs24 \cf0 \
+Gioved\'ec 26/03/15 20.00 - 21.00 \
 \
 Download repo,\
 installation vm vagrant\
@@ -103,7 +107,7 @@ Gestione degli errori visualizzando codice e messaggio errore	28,55\
 Ricerca libreria json to tree\
 \
 Manca da sistemare la delete \
-__________________________________________			30,30\
+_________________________________________		30,30\
 	\
 Domenica 12/04/15 14.10 - 17.30\
 \
@@ -116,7 +120,68 @@ Ricerca convertitore xml - albero che sia flessibile alle modifiche \
 Visualizzazione attributi nelle regole\
 Visualizzazione attributi e tag con colori differenti\
 												35.15\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5467\tx5669\tx6236\tx6803\pardirnatural
+\cf0 _________________________________________\
 \
-												\
+Luned\'ec 12/04/15	22.25 - 23.20\
+\
+Importazione librerie remote\
+Sistemazione nav bar rispetto all\'92altezza del logo, overwrite della classi css di default\
+\
+_________________________________________\
+\
+Luned\'ec 27/04/15	21.00 -\
+\
+Inizio risoluzione problemi persistenti\
+\{\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0
+\f1 \cf2 	\expnd0\expndtw0\kerning0
+quando cancelli un observer ti \'e8 rimasto un dialog box di test\cf0 \
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0    	\expnd0\expndtw0\kerning0
+rename: List of models -> \'93Model\'94\cf0 \
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0    	\expnd0\expndtw0\kerning0
+nel model: default is \'93Post\'94\cf0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0\cf2 	rename: Put -> upload model\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0\cf0 	quando clicchi su metrics si blocca tutto per un po\'92, controlla cosa c\'92\'e8 che va cos\'ec lento ma comunque fallo in background.. non bloccante\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls1\ilvl0\cf2 \kerning1\expnd0\expndtw0 	\expnd0\expndtw0\kerning0
+rename: Post -> update model
+\f0 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+
+\f1 \cf2 \expnd0\expndtw0\kerning0
+	rename: "List of observers" -> \'93List of metrics\'94
+\f0 \cf0 \kerning1\expnd0\expndtw0 	\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls2\ilvl0
+\f1 \cf2    \expnd0\expndtw0\kerning0
+minor comment: i commit git in italiano non si possono vedere :):) per il futuro, usa sempre l\'92inglese soprattutto quando si lavora su software open.\cf0 \
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 	\expnd0\expndtw0\kerning0
+rename: Index.html -> index.html\cf0 \
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 	l\expnd0\expndtw0\kerning0
+ogo (attached)\cf0 \
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 	\expnd0\expndtw0\kerning0
+dopo la submit i file rimangono, cancella il field\cf0 \
+\ls2\ilvl0\cf2 \kerning1\expnd0\expndtw0 	\expnd0\expndtw0\kerning0
+legato al problema di prima, se provi a cliccare 2 volte su submit fa casino, anche la lista di regole viene rappresentata in modo strano, devi fare refresh, evita che si possa fare upload 2 volte (con un waiting ad esempio\'85)\
+\
+Cose non riscontrate :\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls2\ilvl0\cf2 \expnd0\expndtw0\kerning0
+	quando re-installo una regola esistente esce sia OK che bad request X , a me non esce ok.\
+	quando clicchi su metrics si blocca tutto per un po\'92, controlla cosa c\'92\'e8 che non va cos\'ec lento ma comunque fallo in background.. non bloccante.\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720
+\ls2\ilvl0
+\f0 \cf0 \kerning1\expnd0\expndtw0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5467\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \}\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5464\tx5669\tx6236\tx6803\pardirnatural
+\cf0 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural
+\cf0 												\
 \
 _________________________________________}

@@ -43,6 +43,9 @@ $("#rulesForm").submit(function (event) {
     var text;
 
     text = $("#textual").val();
+    
+    $("#textual").val("");
+    $("#addedFile").val("");
 
     sender(text);
 
@@ -160,6 +163,7 @@ function xmlParser(xml) {
 function traverse(node, tree) {
     var children = $(tree).children();
     
+    
     var attributes = " [  ";
     $(tree.attributes).each(function(){
         attributes += this.nodeName + " = ";
@@ -168,12 +172,21 @@ function traverse(node, tree) {
     attributes += " ] ";
     
     if (tree.nodeName.indexOf("monitoringRule") > -1 && tree.nodeName.indexOf("monitoringRules") < 0) {
-        node.append(' "' + tree.nodeName  + '" </span><span class="spanAttributes"> ' + attributes + ' </span>: ');
+        // MonitoringRule
+        node.append(" " +tree.nodeName.split(":")[1]  + '</span><span class="spanAttributes"> ' + attributes + ' </span> ');
         node.append("<button onclick=deleteRule('" + tree.id + "') class='floatRight'><span class = 'glyphicon glyphicon-trash' aria-hidden='true'/></button>");
     }
-    else
-        node.append('<span> "' + tree.nodeName + '"</span><span  class="spanAttributes">' + attributes + '</span>:');
-    
+    else{
+        //MonitoringRules && MonitoringTargets
+        node.append('<span> ' + tree.nodeName.split(":")[1]);
+        
+        //Not MonitoringRules
+        if(tree.nodeName.indexOf("monitoringRules")<0)
+            node.append('</span><span  class="spanAttributes">' + attributes + '</span>');
+        else 
+            node.append('</span><span  class="spanAttributes"> </span>');
+    }
+        
     if (children.length) {
         var ul = $("<ul> ").appendTo(node);
         children.each(function () {
@@ -181,7 +194,7 @@ function traverse(node, tree) {
             traverse(li, this);
         });
     } else {//nodo foglia
-        $('<ul><li> ' + $(tree).text() + '<\/li><\/ul>').appendTo(node);
+        $("<ul><li class='rulesTreeLeaf'>" + $(tree).text() + '</li><\/ul>').appendTo(node);
     }
 }
 /*

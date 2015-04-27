@@ -20,44 +20,46 @@ limitations under the License.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        
         <!-- Mine style sheet -->
         <link rel="stylesheet" type="text/css" href="css/commonLayout.css">
 
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 
         <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 
         <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
+        <script src="js/bootstrap.min.js"></script>
+                        
         <!-- jQuery library -->
         <script src="js/jquery-1.11.2.js"></script>
-        
-        
-        <link rel="stylesheet" type="text/css" href="css/jqtree.css">
-        <!-- CSS useful for the tree -->
-        <link rel="stylesheet" type="text/css" href="css/jquery.json-view.css">
-        
-
     </head>
 
     <body>
         <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <ul class="nav navbar-nav">
-                    <li>
-                        <img src="images/MODAClouds.png" alt="logo" />
+                    <li id="logo">
+                        <img src="images/logo.png" class="navbar-height" alt="MODAClouds" />
                     </li>
                     <li class="active">
-                        <a href="#">
-                            Rules
+                        <a href="#" class="navbar-height selected">Rules
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
-                    <li><a href="menuMetrics.html">Metrics</a></li>
-                    <li><a href="menuModel.html">Model</a></li>
+                    <li>
+                        <a href="menuMetrics.html" class="navbar-height">
+                            Metrics
+                        </a>
+                    </li>
+                    <li>
+                        <a href="menuModel.html" class="navbar-height">
+                            Model
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -105,7 +107,7 @@ limitations under the License.
         </div>
 
         <script src="js/rulesManager.js"></script>
-        
+
     </body>
 </html>
 
